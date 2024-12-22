@@ -1,0 +1,27 @@
+.todo-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+  mat-card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  mat-list {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  
+  mat-icon {
+    color: red;
+  }

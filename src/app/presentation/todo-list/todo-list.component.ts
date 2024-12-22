@@ -6,7 +6,7 @@ import { MatButton } from "@angular/material/button";
 import { MatListItem } from '@angular/material/list';
 import { MatFormField } from '@angular/material/form-field';
 import { MatCheckbox } from '@angular/material/checkbox';
-import { Todo } from '../../../models/todo.model';
+import { Todo } from '../../models/todo.model';
 
 @Component({
   selector: 'app-todo-list',

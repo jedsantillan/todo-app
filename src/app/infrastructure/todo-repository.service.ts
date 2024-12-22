@@ -20,7 +20,7 @@ export class TodoRepositoryService implements TodoRepositoryInterface {
     }
 
     getTodoTask(id: number): Observable<Todo> {
-        return this.http.get<Todo>('${this.apiUrl}/${id}');
+        return this.http.get<Todo>(this.apiUrl + `/${id}`);
     }
 
     createTodo(todoTask: Todo): Observable<Todo> {
@@ -28,8 +28,7 @@ export class TodoRepositoryService implements TodoRepositoryInterface {
     }
 
     deleteTodo(id: number): Observable<void> {
-        return this.http.delete<void>('$(this.apiUrl)/${id}');
+        return this.http.delete<void>(this.apiUrl + `/${id}`);
     }
-
 
 }

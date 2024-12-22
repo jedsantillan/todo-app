@@ -1,7 +1,8 @@
 <div class="todo-list-container">
-  <mat-form-field>
+  <!-- <mat-form-field appearance="fill">
     <input matInput placeholder="Add new Todo" #todoTitle />
-  </mat-form-field>
+  </mat-form-field> -->
+  <input placeholder="Add new Todo" #todoTitle />
   <button mat-raised-button (click)="addTodo(todoTitle.value)">Add</button>
 
   <mat-card>

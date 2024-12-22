@@ -6,7 +6,8 @@ import { MatButton } from "@angular/material/button";
 import { MatListItem } from '@angular/material/list';
 import { MatFormField } from '@angular/material/form-field';
 import { MatCheckbox } from '@angular/material/checkbox';
-import { Todo } from '../../../models/todo.model';
+import { Todo } from '../../models/todo.model';
+import { TodoService } from '../../core/services/todo.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -19,29 +20,37 @@ import { Todo } from '../../../models/todo.model';
     MatIconModule,
     MatButton,
     MatListItem,
-    MatFormField,
-    MatCheckbox,
 ]
 })
 export class TodoListComponent implements OnInit {
   todos: Todo[] = [];
 
-  constructor() { }
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
     this.loadTodo();
   }
 
-  loadTodo(){
-    this.todos.push({id: 1, name: 'initial todo item', isDone: false })
+  loadTodo(): void{
+    this.todoService.getAllTodoTasks().subscribe(
+      (data) => {
+          this.todos = data;
+      }
+  )
   }
 
   addTodo(name: string){
+    const newTodo: Todo = {id: 0, name, isDone: false };
+        this.todoService.createTodo(newTodo).subscribe(() => {
+            this.loadTodo();
+        })
 
   }
 
   deleteTodo(id: number) {
-
+    this.todoService.deleteTodo(id).subscribe(() => {
+      this.todos = this.todos.filter(todo => todo.id !== id);
+  })
   }
 
 }

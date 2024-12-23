@@ -4,8 +4,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from "@angular/material/icon";
 import { MatButton } from "@angular/material/button";
 import { MatListItem } from '@angular/material/list';
-import { MatFormField } from '@angular/material/form-field';
-import { MatCheckbox } from '@angular/material/checkbox';
+import { MatList } from '@angular/material/list';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field'
 import { Todo } from '../../models/todo.model';
 import { TodoService } from '../../core/services/todo.service';
 
@@ -20,10 +21,15 @@ import { TodoService } from '../../core/services/todo.service';
     MatIconModule,
     MatButton,
     MatListItem,
+    MatList,
+    FormsModule,
+    MatFormFieldModule
 ]
 })
+
 export class TodoListComponent implements OnInit {
   todos: Todo[] = [];
+  newTodoName: string = '';
 
   constructor(private todoService: TodoService) { }
 
@@ -43,6 +49,7 @@ export class TodoListComponent implements OnInit {
     const newTodo: Todo = {id: 0, name, isDone: false };
         this.todoService.createTodo(newTodo).subscribe(() => {
             this.loadTodo();
+            this.newTodoName='';  // clear value
         })
 
   }

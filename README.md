@@ -1,4 +1,7 @@
-# TodoApp
+# TodoApp Angular Frontend
+
+TODO List Frontend implementation using Angular by John Edward Santillan
+
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
 

@@ -1,16 +1,16 @@
-<div class="todo-list-container">
-  <!-- <mat-form-field appearance="fill">
-    <input matInput placeholder="Add new Todo" #todoTitle />
-  </mat-form-field> -->
-  <input placeholder="Add new Todo" #todoTitle />
-  <button mat-raised-button (click)="addTodo(todoTitle.value)">Add</button>
+<div class="todo-container">
+  <h2>My Todo Demo</h2>
+  <input matInput maxlength="256" placeholder="Add New Todo Here" [(ngModel)]="newTodoName" />
+  <button mat-raised-button color="primary" (click)="addTodo(newTodoName)">Add Task</button>
 
-  <mat-card>
+  <mat-list>
     <mat-list-item *ngFor="let todo of todos">
-      <mat-card-title>{{ todo.name }}</mat-card-title>
-      <button mat-icon-button (click)="deleteTodo(todo.id)">
-        <mat-icon>delete</mat-icon>
-      </button>
+      <div class="todo-item">
+        <span>{{ todo.name }}</span>
+        <button mat-icon-button color="warn" (click)="deleteTodo(todo.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
     </mat-list-item>
-  </mat-card>
+  </mat-list>
 </div>
